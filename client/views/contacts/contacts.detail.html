@@ -58,10 +58,15 @@
                 <label>所在分组：</label><span ng-repeat="group in groups">{{group.name}}</span>
             </a>
 
+            <a class="button button-block icon ion-ios-telephone-outline"
+               ui-sref="message.detail({toUserId:contact._id})">
+                发消息
+            </a>
             <a class="button button-block icon ion-ios-telephone-outline button-positive" ng-show="contact.mobile"
                href="tel:{{contact.mobile}}">
-                Call Me
+                打电话
             </a>
+
         </div>
 
 

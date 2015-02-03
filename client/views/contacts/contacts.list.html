@@ -1,6 +1,6 @@
 <ion-view hide-back-button="true">
     <ion-header-bar align-title="center" class="bar bar-header disable-user-behavior">
-        <div class="bar bar-header">
+        <div class="bar bar-header" id="bar-header">
             <button class="button button-clear ion-chevron-left" ng-show="showBackButton" ng-click="goBack()"></button>
             <div class="buttons header-item">
                 <div class="button-bar">
@@ -23,7 +23,8 @@
         <div class="search-bar">
             <div class="item-input-wrapper">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" ng-model="searchText" ng-change="setKeyword(searchText)">
+                <input type="text" ng-model="searchText" placeholder="按照姓名，专柜名，专柜码，迷你店名搜索"
+                       ng-change="setKeyword(searchText)">
                 <button ng-show="searchText" class=" button-clear" ng-click="clearSearch(searchText='')">X</button>
             </div>
 
@@ -38,7 +39,6 @@
                     <p class="item_name">{{item.name||(item.section_name+' '+item.miniyin_store_name+'')}}</p>
 
                     <p class="item_tip">{{item.title||''}}</p>
-
                 </a>
             </div>
         </div>

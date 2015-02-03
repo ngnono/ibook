@@ -62,14 +62,14 @@ module.exports = function (app, config) {
      * routing
      */
     app.use('/api', enrouten({
-        directory: '../controllers'
+        directory: '../api'
     }));
 
     /**
      * error Handler
      */
-    app.use(errHandlers.serverError('error/50x', config));
-    app.use(errHandlers.fileNotFound('error/404'));
+    app.use(errHandlers.serverError());
+    app.use(errHandlers.fileNotFound());
 
     return app;
 };

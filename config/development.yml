@@ -1,6 +1,6 @@
 #
 session:
-  key: ''
+  key: '_sid'
   secret: 'test'
   cookie:
     path: '/'

@@ -24,6 +24,13 @@ ims:
   apiKey: 7AB4F1BB-7E70-46CF-98E8-B97F841C30EA
   clientVersion: 2.3
 
+#socket notify service
+socket:
+  baseUrl: http://10.32.42.74:9000/api
+  appKey: 7AB4F1BB
+  appSecure: '001'
+  server: '10.32.42.74:9000'
+
 #elasticsearch
 elasticsearch:
   host: 10.32.11.196:9200
