@@ -26,10 +26,10 @@ ims:
 
 #socket notify service
 socket:
-  baseUrl: http://10.32.42.74:9000/api
+  baseUrl: http://127.0.0.1:9000/api
   appKey: 7AB4F1BB
   appSecure: '001'
-  server: '10.32.42.74:9000'
+  server: '127.0.0.1:9000'
 
 #elasticsearch
 elasticsearch:

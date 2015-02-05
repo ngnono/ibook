@@ -11,76 +11,55 @@ angular
         'ionic.contrib.frostedGlass'
     ]).config(function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/contacts');
+        $urlRouterProvider.otherwise('/tab/friends');
 
-        /**-------------------------------------------------
-         * /contacts
-         -------------------------------------------------*/
-        $stateProvider.state('contacts', {
+        $stateProvider.state('tab', {
+            url: '/tab',
             abstract: true,
-            url: '/contacts',
-            template: '<ion-nav-view></ion-nav-view>'
+            templateUrl: 'views/book/tabs.html'
         });
 
-        // /contacts
-        $stateProvider.state('contacts.list', {
-            url: '',
-            templateUrl: 'views/contacts/contacts.list.html',
-            controller: 'ContactsCtrl'
-        });
-
-        // contacts/:id
-        $stateProvider.state('contacts.detail', {
-            url: '/:id',
-            templateUrl: 'views/contacts/contacts.detail.html',
-            controller: 'ContactsDetailCtrl'
-        });
-
-
-        /**-------------------------------------------------
-         * /groups
-         -------------------------------------------------*/
-        $stateProvider.state('groups', {
-            abstract: true,
-            url: '/groups',
-            template: '<ion-nav-view></ion-nav-view>'
-        });
-
-        // groups
-        $stateProvider.state('groups.list', {
-            url: '',
-            templateUrl: 'views/contacts/groups.list.html',
-            controller: 'GroupsCtrl'
-        });
-
-        //groups/:id
-        $stateProvider.state('groups.detail', {
-            url: '/:groupId',
-            templateUrl: 'views/contacts/contacts.list.html',
-            controller: 'ContactsCtrl'
-        });
-
-
-        $stateProvider.state('message', {
-            abstract: true,
-            url: '/message',
-            template: '<ion-nav-view></ion-nav-view>',
-            controller: 'MessageCtrl'
-        });
-
-        //message
-        $stateProvider.state('message.private', {
+        $stateProvider.state('tab.private', {
             url: '/private',
-            templateUrl: 'views/message/message.private.html',
-            controller: 'MessagePrivateCtrl'
+            views: {
+                'tab-private': {
+                    controller: 'PrivateCtrl',
+                    templateUrl: 'views/book/tab_private.html'
+                }
+            }
         });
 
-        $stateProvider.state('message.detail', {
-            url: '/:toUserId',
-            templateUrl: 'views/message/message.detail.html',
-            controller: 'MessageDetailCtrl'
+        $stateProvider.state('tab.friends', {
+            url: '/friends',
+            views: {
+                'tab-friends': {
+                    controller: 'FriendsCtrl',
+                    templateUrl: 'views/book/tab_friends.html'
+                }
+            }
         });
 
+        $stateProvider.state('tab.groups', {
+            url: '/groups',
+            views: {
+                'tab-groups': {
+                    controller: 'GroupsCtrl',
+                    templateUrl: 'views/book/tab_groups.html'
+                }
+            }
+        });
+
+        $stateProvider.state('friend', {
+            url: '/friend/:id',
+            controller: 'FriendCtrl',
+            templateUrl: 'views/book/friend.html'
+        });
+
+        $stateProvider.state('chat', {
+            url: '/chat/:toUserId',
+            controller: 'ChatCtrl',
+            templateUrl: 'views/book/chat.html'
+        });
     })
     .run(function ($rootScope, $state, $ionicPlatform, $stateParams, $ionicLoading, $ionicHistory, AuthenticationService) {
 
