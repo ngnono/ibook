@@ -594,7 +594,7 @@ module.exports = function (router) {
         //save relation
         var fn3 = function (obj, cb) {
             if (!groups) {
-                cb(null, {_id: obj._id});
+                return cb(null, {_id: obj._id});
             }
             var fns = {};
 
