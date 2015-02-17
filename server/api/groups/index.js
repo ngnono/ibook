@@ -18,9 +18,14 @@ module.exports = function (router) {
         var body = {
             query: {
                 bool: {
-                    must: [
-                        { term: {'type': 'enterprise' }}
-                    ]}
+//                    must: [
+//                        { term: {'type': 'enterprise' }}
+//                    ],
+//                    should: [
+//
+//                    ]
+
+                }
             },
             from: req.query.from || 0,
             size: req.query.size || 100,
@@ -28,6 +33,18 @@ module.exports = function (router) {
                 {sort_order: 'desc'}
             ]
         };
+
+        if (req.query.type) {
+            body.query.bool.must = [
+                { term: {'type': xbzContactsType.Customer }},
+                { term: {'user_id': req.user['id'] }}
+            ];
+        } else {
+            body.query.bool.should = [
+                { term: {'type': 'enterprise' }},
+                { term: {'user_id': req.user['id'] }}
+            ];
+        }
 
         client.search({
             index: client.indexName,
