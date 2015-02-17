@@ -23,7 +23,7 @@ angular.module('ibookApp')
 
             confirmPopup.then(function (res) {
                     if (res) {
-                        $http.delete('api/contacts/' + obj.id)
+                        $http.delete('api/friends/' + obj.id)
                             .success(function (data, status, headers, config) {
 
                                 if (status >= 200 && status < 300) {
