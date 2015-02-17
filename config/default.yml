@@ -26,10 +26,10 @@ ims:
 
 #socket notify service
 socket:
-  baseUrl: http://comet.liangyali.com:9000/api
+  baseUrl: http://a.liangyali.com:9000/api
   appKey: 7AB4F1BB
   appSecure: '001'
-  server: 'comet.liangyali.com:9000'
+  server: 'a.liangyali.com:9000'
 
 #elasticsearch
 elasticsearch:
