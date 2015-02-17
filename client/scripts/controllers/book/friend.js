@@ -69,7 +69,7 @@ angular.module('ibookApp')
 
         //edit
 
-        $ionicModal.fromTemplateUrl('views/contacts/contacts.edit.modal.html', {
+        $ionicModal.fromTemplateUrl('views/book/friend.edit.modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
