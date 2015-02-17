@@ -116,7 +116,7 @@ angular.module('ibookApp')
 
         $scope.submit = function () {
             $scope.saveDisabled = true;
-            $http.put('/api/contacts/' + id, $scope.contact)
+            $http.put('/api/friends/' + id, $scope.contact)
                 .success(function (data, status, headers, config) {
                     $scope.saveDisabled = false;
 
