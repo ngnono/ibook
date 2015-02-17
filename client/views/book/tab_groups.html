@@ -1,0 +1,33 @@
+<ion-view hide-back-button="true">
+    <!--<div class="bar bar-header">-->
+        <!--<button class="button button-clear ion-chevron-left" ng-show="showBackButton" ng-click="goBack()"></button>-->
+        <!--<div class="buttons header-item">-->
+            <!--<div class="button-bar">-->
+                <!--<button class="button bar_tab"-->
+                        <!--ui-sref="tab.friends()">-->
+                    <!--通讯录-->
+                <!--</button>-->
+                <!--<button class="button bar_tab active"-->
+                        <!--ui-sref="tab.groups()">-->
+                    <!--分组-->
+                <!--</button>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<button class="button button-clear button-positive ion-plus blue-color"></button>-->
+    <!--</div>-->
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">分组</h1>
+    </ion-header-bar>
+
+    <!---搜索框 end  -->
+    <ion-content class="content" has-tabs="true">
+        <div class="list">
+            <a class="item item-icon-right" ui-sref="tab.groups.friends({groupId:group._id})" ng-repeat="group in groups">
+                <h2 class="item_name group_admin">{{group.name}}</h2>
+
+                <p class="item_tip">{{group.count}}人</p>
+                <i class="icon ion-chevron-right"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

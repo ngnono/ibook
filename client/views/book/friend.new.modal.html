@@ -1,0 +1,95 @@
+<ion-modal-view >
+    <!--<ion-view view-title="">-->
+    <div class="bar bar-header item-input-inset no-border no-padding-bottom">
+        <!--<button class="button button-clear button-positive ion-chevron-left" ng-click="goBack()"></button>-->
+        <div class="h1 title head_color">添加新朋友</div>
+        <button class="button button-clear button-txt-color" ng-click="closeModal()">完成</button>
+    </div>
+    <ion-content class="has-header">
+
+        <form name="addContacts" ng-submit="submit()">
+            <div class="addnewfriend">
+
+                <img width="45px" height="45px" src="images/icon1.jpg">
+
+                <ul>
+                    <li>
+                        <label>姓氏：</label>
+                        <input type="text" ng-model="contact.lastName"/>
+                    </li>
+                    <li>
+                        <label> 名字：</label>
+                        <input type="text" ng-model="contact.firstName"/>
+                    </li>
+                    <li>
+                        <label> 公司： </label>
+                        <input type="text" ng-model="contact.company"/>
+
+                    </li>
+                    <li>
+                        <label> 昵称：</label>
+                        <input type="text" ng-model="contact.name"/>
+                    </li>
+                </ul>
+                <!--<div class="user_info">-->
+                <!--<a href="javascript:;" class="wechat"></a>-->
+                <!--<a href="javascript:;" class="qq"></a>-->
+                <!--<a href="javascript:;" class="note"></a>-->
+                <!--</div>-->
+            </div>
+
+
+            <div class="indetail padding">
+                <ul>
+                    <li class="phone">
+                        <i></i>
+                        <label>联系电话：</label>
+                        <input type="tel" ng-model="contact.mobile"/>
+                    </li>
+                    <li class="wechat">
+                        <i></i>
+                        <label>添加微信：</label>
+                        <input type="text" ng-model="contact.wechat"/>
+                    </li>
+                    <li class="email">
+                        <i></i>
+                        <label>添加邮件：</label>
+                        <input type="email" ng-model="contact.email"/>
+                    </li>
+                    <li class="address">
+                        <i></i>
+                        <label>添加地址：</label>
+                        <input type="text" ng-model="contact.address"/>
+                    </li>
+
+                    <li class="birthday">
+                        <i></i>
+                        <label>添加生日：</label>
+                        <input type="date" ng-model="contact.birthday"/>
+                    </li>
+                    <li class="mark">
+                        <i></i>
+                        <label>添加备注：</label>
+                        <input type="text" ng-model="contact.mark"/>
+                    </li>
+                    <li class="mark">
+                        <i></i>
+                        <label>添加分组：</label>
+                        <select ng-model="contact.groups" ng-options="g.name for g in groups" multiple="multiple">
+                            <option value="">-- 请选择 --</option>
+
+                        </select>
+                        <a href="javascript:;" ng-click="openModal4group()">添加</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="padding">
+                <button type="submit" class="button button-balanced button-full button-positive"
+                        ng-disabled="saveDisabled">保存
+                </button>
+
+            </div>
+        </form>
+    </ion-content>
+    <!--</ion-view>-->
+</ion-modal-view>

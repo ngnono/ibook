@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>银泰小本子</title>
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/ionic/css/ionic.css"/>
+    <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
+<body>
+<ul>
+    <% items.forEach(function (item){ %>
+    <li><a href="/api/test/autologin?chatUserId=<%= item._id %>&name=<%= item.name %>"><%= item.name %></a></li>
+    <% }) %>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<ion-view hide-back-button="true">
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">会话列表</h1>
+    </ion-header-bar>
+
+    <!---搜索框 end  -->
+    <ion-content class="content" has-tabs="true">
+        <!--<div class="search-bar">-->
+        <!--<div class="item-input-wrapper">-->
+        <!--<i class="icon ion-search placeholder-icon"></i>-->
+        <!--<input type="text" ng-model="searchText" placeholder="按照姓名，专柜名，专柜码，迷你店名搜索"-->
+        <!--ng-change="setKeyword(searchText)">-->
+        <!--<button ng-show="searchText" class=" button-clear" ng-click="clearSearch(searchText='')">X</button>-->
+        <!--</div>-->
+
+        <!--</div>-->
+
+        <div ng-if="conversations&&conversations.length===0" class="card" style="display: none">
+            <div class="item item-text-wrap">
+                暂时没有会话
+            </div>
+        </div>
+        <ion-refresher
+                pulling-text="下拉刷新页面..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+        <div class="list message-list">
+            <a class="item my-item" ui-sref="chat({toUserId:selectUserId(item.users)})"
+               ng-repeat="item in conversations|orderBy:'updated_at'" ng-click="item.activity.mentions=0"
+               on-hold="hold(item)">
+                <img width="45px" height="45px" onerror="this.src='/images/default_avatar.png'"
+                     ng-src="{{item.avatar}}"/>
+
+                <div class="item_name">
+                    <p>{{item.name}}
+                        <span>{{item.store_name}}</span>
+                        <strong>{{item.title}}</strong>
+                    </p>
+
+                    <p class='last_message'>{{item.last_message}}</p>
+                </div>
+                <span class="message-time">{{item.update_at|timeago}}</span>
+                <span class="message-num"
+                      ng-if="item.activity.mentions&&item.activity.mentions!==0&&item.activity.mentions<99"
+                        >{{item.activity.mentions}}</span>
+                <span class="message-num"
+                      ng-if="item.activity.mentions&&item.activity.mentions!==0&&item.activity.mentions>99"
+                        >..</span>
+
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

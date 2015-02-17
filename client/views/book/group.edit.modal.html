@@ -1,0 +1,31 @@
+<ion-modal-view>
+    <!--<ion-view view-title="">-->
+    <div class="bar bar-header item-input-inset no-border no-padding-bottom">
+        <!--<button class="button button-clear button-positive ion-chevron-left" ng-click="goBack()"></button>-->
+        <div class="h1 title head_color">修改</div>
+        <button class="button button-clear button-txt-color" ng-click="closeModal4groupedit()">完成</button>
+    </div>
+    <ion-content class="has-header">
+
+        <form name="addGroups" ng-submit="submit4groupEdit()">
+
+            <div class="indetail padding">
+                <ul>
+                    <li class="address">
+                        <i></i>
+                        <label>组名称：</label>
+                        <input type="text" ng-model="editGroup.name"/>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="padding">
+                <button type="submit" class="button button-balanced button-full button-positive"
+                        ng-disabled="saveDisabled4groupedit">保存
+                </button>
+
+            </div>
+        </form>
+    </ion-content>
+    <!--</ion-view>-->
+</ion-modal-view>

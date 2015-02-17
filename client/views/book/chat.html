@@ -1,0 +1,57 @@
+<ion-view>
+    <div class="bar bar-header item-input-inset no-border no-padding-bottom">
+        <button class="button button-clear button-positive ion-chevron-left" ng-click="goBack()"></button>
+        <h1 class="title">{{title}} <i class="mionling" ng-show="online"></i><i class="mioffling" ng-show="!online"></i>
+        </h1>
+    </div>
+    <ion-content has-bouncing="true" class="has-header has-footer"
+                 delegate-handle="userMessageScroll">
+        <ion-refresher
+                pulling-text="下拉刷获取聊天记录..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+        <div class="msg_detail padding">
+            <ul class="msg_detail_list">
+                <li ng-repeat="message in messages">
+                    <article ng-show="message.type==='time'">
+                        <span>{{message.content|timeago}}</span>
+                    </article>
+                    <section ng-show="message.from===toUserId&&message.type==='text'">
+                        <a ui-sref="friend(message.from)"><img src="images/icon1.jpg" width="45" height="45"/></a>
+
+                        <div class="msg left dapei"><!-- 搭配 -->
+                            <p>
+                                <a>
+                                    {{message.content}}
+                                </a>
+                            </p>
+                            <i></i>
+                        </div>
+                    </section>
+                    <section class="msg_right" ng-show="message.from!==toUserId&&message.type==='text'">
+                        <div class="msg right dianpu">
+                            <p>
+                                <a><img ng-if="message.loading" src="/images/loading.gif" width="16"/>{{message.content}}</a>
+                            </p>
+                            <i></i>
+                        </div>
+                        <a ui-sref="friend({id:message.from})"><img src="images/icon1.jpg" width="45"
+                                                                    height="45"/></a>
+                    </section>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+
+    <footer class="footer">
+        <div class="item item-input-inset info">
+            <label class="item-input-wrapper">
+                <input type="text" placeholder="请输入消息" ng-model="input.message" value="" autofocus=""/>
+            </label>
+            <button class="button button-small button-balanced" ng-click="sendPrivateMessage(msg)"
+                    ng-disabled="!input.message || input.message === ''"
+                    ng-keyup="sendPrivateMessage(msg)">
+                &nbsp;发送&nbsp;</button>
+        </div>
+    </footer>
+</ion-view>

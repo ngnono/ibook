@@ -1,0 +1,49 @@
+<ion-view hide-back-button="!$stateParams.groupId">
+    <!--<div class="bar bar-header" id="bar-header">-->
+    <!--<button class="button button-clear ion-chevron-left" ng-show="showBackButton" ng-click="goBack()"></button>-->
+    <!--<div class="buttons header-item">-->
+    <!--<div class="button-bar">-->
+    <!--<button class="button bar_tab active"-->
+    <!--ui-sref="tab.friends()">-->
+    <!--通讯录-->
+    <!--</button>-->
+    <!--<button class="button bar_tab"-->
+    <!--ui-sref="tab.groups()">-->
+    <!--分组-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<button class="button button-clear button-positive ion-plus blue-color"></button>-->
+    <!--</div>-->
+
+    <ion-header-bar class="">
+        <h1 class="title">联系人</h1>
+        <button class="button button-clear button-positive ion-plus blue-color" ui-sref="tab_friends_new()"></button>
+    </ion-header-bar>
+
+    <ion-content has-tabs="true">
+        <div class="search-bar">
+            <div class="item-input-wrapper">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" ng-model="searchText" placeholder="按照姓名，专柜名，专柜码，迷你店名搜索"
+                       ng-change="setKeyword(searchText)">
+                <button ng-show="searchText" class=" button-clear" ng-click="clearSearch(searchText='')">X</button>
+            </div>
+
+        </div>
+        <div class="list">
+            <div ng-repeat="item in data.items">
+                <a class="item my-item"
+                   ui-sref="friend({id:item._id})">
+                    <img width="45px" height="45px"
+                         ng-src="/images/icon2.jpg">
+
+                    <p class="item_name">{{item.name||(item.section_name+' '+item.miniyin_store_name+'')}}</p>
+
+                    <p class="item_tip">{{item.title||''}}</p>
+                </a>
+            </div>
+        </div>
+        <ion-infinite-scroll ng-if="hasMore" on-infinite="loadMore()"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>
