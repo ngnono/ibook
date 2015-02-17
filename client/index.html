@@ -10,15 +10,15 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/ionic/css/ionic.css" />
-    <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css" />
+    <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css"/>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/ionic.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body ng-app="ibookApp" animation="slide-left-right-ios7 platform-ios">
+<body ng-app="ibookApp">
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -26,11 +26,6 @@
 <![endif]-->
 
 <!-- The nav bar that will be updated as we navigate between views. -->
-
-<!--$state = {{$state.current.name}}-->
-<!--$stateParams = {{$stateParams}}-->
-<!--$state full url = {{ $state.$current.url.source }}-->
-
 
 <!--
   The views will be rendered in the <ion-nav-view> directive below
@@ -63,24 +58,22 @@
 <script src="bower_components/json3/lib/json3.js"></script>
 <![endif]-->
 <!-- endbuild -->
+<script src="scripts/venders/ionic.bundle.min.js"></script>
 
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="bower_components/ionic/js/ionic.js"></script>
-<script src="bower_components/ionic/js/ionic-angular.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
+<script src="bower_components/moment/locale/zh-cn.js"></script>
+
 <!-- build:js({.tmp,client}) scripts/scripts.js -->
-<script src="scripts/socket.io.js"></script>
+<script src="scripts/venders/socket.io.js"></script>
 <script src="scripts/app.js"></script>
-<script src="scripts/directives/ionic.contrib.frostedGlass.js"></script>
+<script src="scripts/directives/directives.js"></script>
 <script src="scripts/controllers/book/friends.js"></script>
 <script src="scripts/controllers/book/friend.js"></script>
 <script src="scripts/controllers/book/groups.js"></script>
@@ -88,8 +81,12 @@
 <script src="scripts/controllers/book/chat.js"></script>
 <script src="scripts/controllers//book/private.js"></script>
 <script src="scripts/controllers/book/chat.js"></script>
+<script src="scripts/controllers/book/friend.new.js"></script>
 <!-- endbuild -->
 
+<audio style="width: 0px;height: 0px;display: none;" src="/video/sms-received.mp3"
+       controls="controls">
+</audio>
 </body>
 </html>
 

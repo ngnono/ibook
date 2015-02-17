@@ -50,7 +50,6 @@ a{text-decoration: none;}
 .nav_abb span{display:inline-block;width:15px;height:15px;text-align:center;line-height: 15px;}
 .nav_abb .active{background:#283264;color:#fff;}
 .item-icon-right .icon{font-size: 14px;}
-.back{width:9px;height:18px; background:url(../images/back_blue.png) no-repeat;background-size:100%;}
 
 /*列表页*/
 .button-ytcolor{background:#e60050;color:#fff;border:none;}
@@ -145,7 +144,7 @@ a{text-decoration: none;}
 .msg_detail{}
 .msg_detail_list li{margin-bottom: 10px;position: relative;}
 .msg_detail_list li:after{content: "";display: block;height: 0;clear: both;visibility: hidden;}
-.msg_detail_list section{display:flex;float: left;}
+.msg_detail_list section{display:flex;display: -webkit-box;float: left;}
 .msg_detail_list section img{border-radius:45px;margin-right:10px;}
 .msg_detail_list article{text-align: center;margin-bottom: 10px;margin-top:20px;font-size: 10px}
 .msg_detail_list article span{background:#d9d9d9;border:1px solid #c6c6c6;color:#fff;padding:4px;border-radius: 4px;}
@@ -179,7 +178,7 @@ a{text-decoration: none;}
 .footer{height:45px;}
 .footer .info{background: #d9d9d9;padding:10px;border-top:1px solid #c1c1c1;position:fixed;bottom:0;left:0;height:50px;width:100%;display: flex;}
 .footer .info textarea{flex:1;border-radius: 2px;resize:none;padding:3px;font-size: 14px;}
-.footer .info a{float:right;width:50px;height:30px;border:1px solid #e60050;color:#e60050;text-align: center;line-height: 30px;background:#fff;margin-left:5px;border-radius: 2px;}
+.footer .info a{float:left;width:50px;height:30px;border:1px solid #e60050;color:#e60050;text-align: center;line-height: 25px;background:#fff;margin-left:5px;border-radius: 2px;}
 
 /*订单中心*/
 
@@ -202,66 +201,4 @@ body, .ionic-body {
     background-color: #ffffff;
 }
 
-/*message*/
-.messages {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
 
-.messages li {
-    display: block;
-    float: left;
-    clear: both;
-    max-width: 65%;
-    margin: 0 0 1rem 0;
-    padding: 0;
-}
-
-.messages li:nth-child(even) {
-    float: right;
-}
-
-.messages li:nth-child(even) img {
-    float: right;
-}
-
-.messages p {
-    border-radius: .75rem;
-    background: #e6e5eb;
-    color: #383641;
-    padding: .6875rem;
-    margin: 0;
-    font-size: .875rem;
-}
-
-.messages li:nth-child(even) p {
-    background: #158ffe;
-    color: #fff;
-}
-
-.messages img {
-    display: block;
-    max-width: 65%;
-    border-radius: .75rem;
-}
-
-.ionic-contrib-blur {
-    overflow: hidden;
-    position:absolute;
-    width: 100%;
-    top:0;
-    left:0;
-    right:0;
-    -webkit-filter:blur(20px);
-    opacity:.25;
-    z-index: 1;
-}
-
-.bar-frosted {
-    background-color: #F7F7F7;
-}
-
-.scroll-content {
-    margin-bottom: 50px;
-}

@@ -5,11 +5,9 @@
  */
 angular
     .module('ibookApp', [
-        'ngAnimate',
         'ngCookies',
-        'ionic',
-        'ionic.contrib.frostedGlass'
-    ]).config(function ($stateProvider, $urlRouterProvider) {
+        'ionic'
+    ]).config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
         $urlRouterProvider.otherwise('/tab/friends');
 
@@ -49,6 +47,12 @@ angular
             }
         });
 
+        $stateProvider.state('tab.groups.friends', {
+            url: '/:groupId',
+            controller: 'FriendsCtrl',
+            templateUrl: 'views/book/tab_friends.html'
+        });
+
         $stateProvider.state('friend', {
             url: '/friend/:id',
             controller: 'FriendCtrl',
@@ -60,6 +64,21 @@ angular
             controller: 'ChatCtrl',
             templateUrl: 'views/book/chat.html'
         });
+
+        // tab/new
+        $stateProvider.state('tab_friends_new', {
+            url: '/new',
+            templateUrl: 'views/book/friend.new.html',
+            controller: 'FriendNewCtrl'
+        });
+
+        //android default tab on top,fix the bug
+        $ionicConfigProvider.platform.android.tabs.position("bottom");
+        $ionicConfigProvider.tabs.style('standard');
+
+        $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-thin-left');
+        $ionicConfigProvider.backButton.previousTitleText(false);
+        $ionicConfigProvider.navBar.alignTitle('center');
     })
     .run(function ($rootScope, $state, $ionicPlatform, $stateParams, $ionicLoading, $ionicHistory, AuthenticationService) {
 
@@ -120,7 +139,7 @@ angular
             .success(function (result) {
                 if (result.code !== 200) {
                     $ionicLoading.show({
-                        template: '获取Token失败',
+                        template: '连接聊天服务器失败',
                         noBackdrop: true,
                         duration: 3000
                     });
@@ -134,7 +153,7 @@ angular
                 var socket = io.connect(result.url);
 
                 $ionicLoading.show({
-                    template: 'Loading...',
+                    template: '正在连接服务器...',
                     noBackdrop: true
                 });
 
@@ -172,10 +191,10 @@ angular
 
             }).error(function () {
                 $ionicLoading.show({
-                    template: '网络异常',
+                    template: '网络异常，请退出重新登陆',
                     noBackdrop: true,
                     duration: 3000
                 });
             });
-    });
+    }).constant('ResourceServer', 'http://rss1.intime.com.cn/fileupload/');
 

@@ -26,14 +26,15 @@ ims:
 
 #socket notify service
 socket:
-  baseUrl: http://127.0.0.1:9000/api
+  baseUrl: http://comet.liangyali.com:9000/api
   appKey: 7AB4F1BB
   appSecure: '001'
-  server: '127.0.0.1:9000'
+  server: 'comet.liangyali.com:9000'
 
 #elasticsearch
 elasticsearch:
   host: 10.32.11.196:9200
   maxSockets: 100
+  logLevel: info
 
 
