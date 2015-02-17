@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ibookApp')
-    .controller('FriendCtrl', function ($rootScope, $http, $scope, $stateParams) {
+    .controller('FriendCtrl', function ($rootScope, $http, $scope, $ionicPopup, $ionicModal, $stateParams) {
 
         var id = $stateParams.id;
 
